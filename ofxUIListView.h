@@ -26,6 +26,9 @@ public:
     
     void addRow(ofxUIListViewRow *row) {
         addWidgetDown(row);
+
+        ofAddListener(row->newGUIEvent, this, &ofxUIListView::guiEvent);
+        
         rows.push_back(row);
     }
 
@@ -33,7 +36,15 @@ public:
         ofxUIListViewRow *row = new ofxUIListViewRow(title);
         addRow(row);
     }
+
+
+    
+    void guiEvent(ofxUIEventArgs &e) {
+        
+        string name = e.widget->getName();
+        int kind = e.widget->getKind();
+    }
 };
 
 
-#endif /* defined(OFXUI_LIST_VIEW) */
+#endif
