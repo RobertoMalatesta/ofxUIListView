@@ -5,10 +5,11 @@
 //
 //
 
-#ifndef OFXUI_LIST_VIEW
-#define OFXUI_LIST_VIEW
+#ifndef OFXUI_LISTVIEW
+#define OFXUI_LISTVIEW
 
 #include "ofxUIScrollableCanvas.h"
+#include "ofxUIListViewRow.h"
 
 class ofxUIListView : public ofxUIScrollableCanvas
 {
@@ -24,12 +25,7 @@ public:
     }
     
     void addRow(string title) {
-        cout << "adding row with title " << title << endl;
-        ofxUICanvas *row = new ofxUICanvas(0, 0, 310, 80);
-        row->setWidgetPosition(OFX_UI_WIDGET_POSITION_RIGHT);
-        row->addEmbeddedWidget(new ofxUILabel(title, OFX_UI_FONT_LARGE));
-//        row->autoSizeToFitWidgets();
-        
+        ofxUIListViewRow *row = new ofxUIListViewRow(title);
         addWidgetDown(row);
     }
 };
