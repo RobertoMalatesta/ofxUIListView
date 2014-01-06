@@ -15,7 +15,7 @@ class ofxUIListView : public ofxUIScrollableCanvas
 {
 private:
     
-    vector<ofxUIWidget> rows;
+    vector<ofxUIListViewRow *> rows;
 
 public:
     
@@ -24,9 +24,14 @@ public:
         initScrollable();
     }
     
+    void addRow(ofxUIListViewRow *row) {
+        addWidgetDown(row);
+        rows.push_back(row);
+    }
+
     void addRow(string title) {
         ofxUIListViewRow *row = new ofxUIListViewRow(title);
-        addWidgetDown(row);
+        addRow(row);
     }
 };
 

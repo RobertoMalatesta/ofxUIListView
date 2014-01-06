@@ -15,13 +15,13 @@ class ofxUIListViewRow : public ofxUICanvas {
 
 public:
     
-    ofxUIListViewRow(string title) : ofxUICanvas() {
+    ofxUIListViewRow(string title) : ofxUICanvas(0,0,310,80) {
 
         this->setWidgetPosition(OFX_UI_WIDGET_POSITION_RIGHT);
         this->addEmbeddedWidget(new ofxUIToggle(32, 32, true, ""));
         this->addEmbeddedWidget(new ofxUILabel(title, OFX_UI_FONT_LARGE));
         this->addEmbeddedWidget(new ofxUILabelButton("X", false));
-        this->autoSizeToFitWidgets();
+//        this->autoSizeToFitWidgets();
     }
 
 };
