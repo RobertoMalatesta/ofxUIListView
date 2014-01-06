@@ -24,11 +24,13 @@ public:
     }
     
     void addRow(string title) {
-        
-        ofxUIWidget *row = new ofxUILabel(title, OFX_UI_FONT_LARGE);
+        cout << "adding row with title " << title << endl;
+        ofxUICanvas *row = new ofxUICanvas(0, 0, 310, 80);
         row->setWidgetPosition(OFX_UI_WIDGET_POSITION_RIGHT);
+        row->addEmbeddedWidget(new ofxUILabel(title, OFX_UI_FONT_LARGE));
+//        row->autoSizeToFitWidgets();
         
-        addWidgetDown(ROW);
+        addWidgetDown(row);
     }
 };
 
